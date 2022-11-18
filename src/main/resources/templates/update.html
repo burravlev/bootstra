@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<form action="#" th:action="@{/admin/update}" th:object="${user}" th:method="PATCH">
+    <label for="id">Id</label>
+    <input id="id" readonly type="number" th:field="*{id}" th:value="${user.id}">
+    <br>
+    <label for="name">Name</label>
+    <input id="name" th:field="*{name}" th:value="${user.name}" placeholder="Name">
+    <br>
+    <label for="surname">Surname</label>
+    <input id="surname" th:field="*{surname}" th:value="${user.surname}" placeholder="Surname">
+    <br>
+    <label for="age">Age</label>
+    <input id="age" th:field="*{age}" th:value="${user.age}"  placeholder="Age">
+    <br>
+    <label for="email">Email</label>
+    <input id="email" th:field="*{email}" th:value="${user.email}"  placeholder="email">
+    <br>
+    <input type="submit" value="Save changes">
+</form>
+</body>
+</html>

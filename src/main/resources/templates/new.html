@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form action="#" th:action="@{/admin/save}" th:object="${user}" method="post">
+    <label for="name">Name</label>
+    <input id="name" th:field="*{name}" placeholder="Name">
+    <br>
+    <label for="surname">Surname</label>
+    <input id="surname" th:field="*{surname}" placeholder="Surname">
+    <br>
+    <label for="age">Age</label>
+    <input id="age" th:field="*{age}" placeholder="Age">
+    <br>
+    <label for="email">Email</label>
+    <input id="email" th:field="*{email}" placeholder="email">
+    <br>
+    <input type="submit" value="Add user">
+</form>
+</body>
+</html>
