@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav th:replace="components/nav :: nav"></nav>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="components/side :: div"></div>
+        <div class="p-0 col-10 bg-light">
+            <div class="tabs p-4">
+                <h1>User information page</h1>
+                <div class="pt-2 tab-content">
+                    <div class="tab-pane fade show active" id="description">
+                        <div class="p-3 border">
+                            <h5 class="my-0 mx-2">User info</h5>
+                        </div>
+                        <div class="p-3 bg-white border border-top-0">
+                            <table class="usersTable table table-striped bg-white" th:object="${user}">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Age</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td th:text="*{id}"></td>
+                                    <td th:text="*{name}"></td>
+                                    <td th:text="*{surname}"></td>
+                                    <td th:text="*{age}"></td>
+                                    <td th:text="*{getUsername}"></td>
+                                    <td th:each="role : ${user.getRoles()}"><span th:utext="${role}"></span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+</html>
